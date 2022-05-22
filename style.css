@@ -55,3 +55,7 @@
     align-items: center;
     justify-content: center;
 }
+
+.restart:hover, .btn:hover {
+    cursor: pointer;
+}
