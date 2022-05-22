@@ -3,26 +3,32 @@
     width: 70vw;
     height: 70vh;
     margin-left: 15vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr;
+    grid-template-columns: 1fr;
+    text-align: center;
     border: solid black 2px;
     border-radius: 15px;
 }
 
-.difficult {
-    height: 7vh;
+.boardTop {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
-.symbolSelect {
-    height: 7vh;
+.btn {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    padding: 0 1rem 0 1rem;
 }
 
 .gameBoard {
-    height: 42vh;
+    height: 3fr;
     background-color: black;
-    width: 42vh;
+    padding-left: 20%;
+    padding-right: 20%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 5px;
@@ -36,7 +42,10 @@
 
 .restart {
     background-color: lightgoldenrodyellow;
-    width: 100%;
-    height: 14vh;
-    text-align: center;
+    display: flex;
+    width: 70vw;
+    height: 100%;
+    border-radius: 0 0 15px 15px;
+    align-items: center;
+    justify-content: center;
 }
