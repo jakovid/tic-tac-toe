@@ -1,3 +1,12 @@
+//my module
+// var game = {
+//     gameSquares: document.querySelectorAll('.gameSquare'),
+//     btns: document.querySelectorAll('.btn'),
+//     turn: "X",
+
+// };
+
+//my OG code
 //variable
 const gameSquares = document.querySelectorAll(".gameSquare");
 const btns = document.querySelectorAll(".btn");
