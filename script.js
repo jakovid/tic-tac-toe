@@ -25,6 +25,7 @@ function userPick(e) {
     
     if (e.type === "click" && playable) {
         this.innerHTML = turn;
+        // this.classList = "selectedSquare";
     }
 
     if (!playable){
@@ -37,7 +38,7 @@ function userPick(e) {
 
 function reset() {
     gameSquares.forEach((div) => div.innerHTML = " ");
-    gameSquares.forEach((div) => div.style.backgroundColor = 'white');
+    // gameSquares.forEach((div) => div.classList.remove("selectedSquare"));
 }
 
 function symbolSelect() {
