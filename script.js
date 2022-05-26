@@ -57,12 +57,24 @@ function winCheck(){
     let r3c3 = document.getElementById("3c").innerHTML;
     let g = [r1c1,r1c2,r1c3,r2c1,r2c2,r2c3,r3c1,r3c2,r3c3];
 
+    //top corner win check
     if
-    ((g[0] === (g[1] && g[2]) || g[0] === (g[3] && g[6])) && g[0] != " "){
+        (((g[0] === g[1] && g[0] === g[2]) 
+        || g[0] === g[3] && g[0] === g[6]) 
+        && g[0] != " "
+        ) {
         console.log("win!");
-    } 
-    // else if 
-    // ((g[8] === (g[6] && g[7]) || g[8] === (g[2] && g[5])) && g[8] != " "){
-    //     console.log("win!");
-    // }
+        reset();
+        }
+    //check bottom corner win 
+    else if 
+        (((g[8] === g[7] && g[8] === g[6]) 
+        || g[8] === g[5] && g[8] === g[2]) 
+        && g[8] != " "
+        ){
+        console.log("win!");
+        reset();
+    }
+    
+    
 }
