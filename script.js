@@ -75,6 +75,11 @@ function winCheck(){
         console.log("win!");
         reset();
     }
-    
+    //check center win
+    else if
+    // (((g[8] === g[7] && g[8] === g[6]) 
+    //     || g[8] === g[5] && g[8] === g[2]) 
+    //     && g[8] != " "
+
     
 }
