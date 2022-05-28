@@ -77,9 +77,15 @@ function winCheck(){
     }
     //check center win
     else if
-    // (((g[8] === g[7] && g[8] === g[6]) 
-    //     || g[8] === g[5] && g[8] === g[2]) 
-    //     && g[8] != " "
+        (((g[4] === g[3] && g[4] === g[5]) //center row win
+        || g[4] === g[1] && g[4] === g[7] // center column win
+        || g[4] === g[0] && g[4] === g[8] // top left diagonal win
+        || g[4] === g[2] && g[4] === g[6]) // top right diagonal win 
+        && g[4] != " "
+    ){
+        console.log("win!");
+        reset();
+    }
 
     
 }
