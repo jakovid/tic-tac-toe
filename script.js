@@ -86,6 +86,11 @@ function winCheck(){
         console.log("win!");
         reset();
     }
+    else if
+        (g.includes(" ") === false ){
+        console.log("cat game!");
+        reset();
+        }
 
     
 }
