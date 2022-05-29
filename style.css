@@ -2,7 +2,7 @@
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.container {
+.gameModule {
     background-color: lightblue;
     width: 70vw;
     height: 70vh;
@@ -35,7 +35,7 @@
     justify-content: center;
 }
 
-.gameBoard {
+.game {
     background-color: pink;
     height: 40vh;
     width: 40vh;

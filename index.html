@@ -8,25 +8,21 @@
     <title>tic tac toe</title>
 </head>
 <body>
-    <div class="container">
+    <div class="gameModule" id="gameModule">
         <div class="boardTop">
             <div class="difficulty">easy</div>
             <div class="symbolSelect">
-                <button class="btn" value="X">X</button>
-                <button class="btn" value="O">O</button>
+                <button class="btn" value="X" onclick="symbolSelect()">X</button>
+                <button class="btn" value="O" onclick="symbolSelect()">O</button>
             </div>
         </div>
         <div class="boardMiddle">
-            <div class="gameBoard">
-                <div class="gameSquare" id="1a"> </div>
-                <div class="gameSquare" id="2a"> </div>
-                <div class="gameSquare" id="3a"> </div>
-                <div class="gameSquare" id="1b"> </div>
-                <div class="gameSquare" id="2b"> </div>
-                <div class="gameSquare" id="3b"> </div>
-                <div class="gameSquare" id="1c"> </div>
-                <div class="gameSquare" id="2c"> </div>
-                <div class="gameSquare" id="3c"> </div>
+            <div class="game" id="game">
+                <script id="gameboard-template" type="text/template">
+                    {{#gameBoard}}
+                        <div class="gameSquare" onclick="userPick()">{{.}}</div>
+                    {{/board}}
+                </script>
             </div>
         </div>
         <div class="restart" onclick="reset()">Restart</div>
