@@ -1,23 +1,38 @@
 (function() {
     var gameModule = {
-        gameBoard: ['0', '1', '2', '3', '4', '5', '6', '7', '8'],
+        gameBoard: ['1', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
         turn: "X",
         init: function() {
             this.cacheDom();
-            this.render();
+            this.renderBoard();
+            this.bindEvents();
         },
         cacheDom: function() {
             this.el = document.getElementById('gameModule');
             this.gameSquares = this.el.querySelectorAll('.gameSquare');
             this.buttons = this.el.querySelectorAll('.btn');
-            this.template = this.el.getElementById('gameboard-template').html();
-            this.game = this.el.find('#game');
+            this.game = this.el.querySelector('game');
+            this.resetButton = this.el.querySelector('.restart');
         },
-        render: function(){
-            var data = {
-                gameBoard: this.gameBoard,
+        bindEvents: function(){
+            this.resetButton.onclick = this.resetGame.bind(this);
+        },
+        renderBoard: function(){
+            for (let i = 0; i < 9; i++) {
+                this.gameSquares[i].innerHTML = this.gameBoard[i];
+            }
+        },
+        resetGame: function() {
+            for (let i = 0; i < 9; i++) {
+                this.gameBoard[i] = " ";
             };
-            this.game.html(Mustache.render(this.template, data));
+            this.renderBoard();
+        },
+        userPick: function(x) {
+            for (let i = 0; i < 9; i++) {
+                this.gameSquares[i].innerHTML = this.gameBoard[i];
+            }
+            this.renderBoard();
         }
 
     };
