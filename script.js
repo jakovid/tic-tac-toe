@@ -1,5 +1,6 @@
 //variable
 const gameSquares = document.querySelectorAll(".gameSquare");
+// const gameSquaresHTML = [document.querySelectorAll(".gameSquare")].map(e=>e.innerHTML);
 const btns = document.querySelectorAll(".btn");
 let turn = "X";
 
@@ -34,6 +35,7 @@ function userPick(e) {
         turn = "X";
     }
     winCheck();
+    // console.dir(gameSquaresHTML);
 }
 
 function reset() {
