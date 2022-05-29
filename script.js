@@ -16,6 +16,9 @@
         },
         bindEvents: function(){
             this.resetButton.onclick = this.resetGame.bind(this);
+            for (let i = 0; i < 9; i++) {
+                this.gameSquares[i].onclick = this.userPick.bind(this);
+            };
         },
         renderBoard: function(){
             for (let i = 0; i < 9; i++) {
@@ -28,11 +31,10 @@
             };
             this.renderBoard();
         },
-        userPick: function(x) {
-            for (let i = 0; i < 9; i++) {
-                this.gameSquares[i].innerHTML = this.gameBoard[i];
-            }
-            this.renderBoard();
+        userPick: function() {
+            console.log('hi');
+            // this.gameBoard[x] = this.turn;
+            // this.renderBoard();
         }
 
     };
