@@ -1,6 +1,6 @@
 (function() {
     var gameModule = {
-        gameBoard: ['1', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+        gameBoard: [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
         turn: "X",
         init: function() {
             this.cacheDom();
@@ -17,7 +17,7 @@
         bindEvents: function(){
             this.resetButton.onclick = this.resetGame.bind(this);
             for (let i = 0; i < 9; i++) {
-                this.gameSquares[i].onclick = this.userPick.bind(this);
+                this.gameSquares[i].onclick = this.userPick;
             };
         },
         renderBoard: function(){
@@ -32,9 +32,17 @@
             this.renderBoard();
         },
         userPick: function() {
-            console.log('hi');
-            // this.gameBoard[x] = this.turn;
-            // this.renderBoard();
+            let value = this.getAttribute('value');
+            gameModule.gameBoard[value] = gameModule.turn;
+            gameModule.changeTurn();
+            gameModule.renderBoard();
+        },
+        changeTurn: function() {
+            if (this.turn === "X") {
+                 this.turn = "O";
+            } else {
+                this.turn = "X";
+            }
         }
 
     };
