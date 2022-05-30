@@ -32,10 +32,12 @@
             this.renderBoard();
         },
         userPick: function() {
-            let value = this.getAttribute('value');
-            gameModule.gameBoard[value] = gameModule.turn;
-            gameModule.changeTurn();
-            gameModule.renderBoard();
+            if (this.innerHTML === " ") {
+                let value = this.getAttribute('value');
+                gameModule.gameBoard[value] = gameModule.turn;
+                gameModule.changeTurn();
+                gameModule.renderBoard();
+            }
         },
         changeTurn: function() {
             if (this.turn === "X") {
@@ -43,7 +45,7 @@
             } else {
                 this.turn = "X";
             }
-        }
+        },
 
     };
 
