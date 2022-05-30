@@ -48,8 +48,36 @@
             }
         },
         winCheck: function() {
-            if (this.gameBoard[0] === this.gameBoard[1] && this.gameBoard[0] === this.gameBoard[2] && this.gameBoard[0] != " ") {
-                console.log('Top Row Win');
+            //top corner check
+            if 
+            (((this.gameBoard[0] === this.gameBoard[1] && this.gameBoard[0] === this.gameBoard[2])
+            || (this.gameBoard[0] === this.gameBoard[3] && this.gameBoard[0] === this.gameBoard[6]))
+            && this.gameBoard[0] != " ") {
+                console.log(`${this.gameBoard[0]} wins!`);
+                this.resetGame();
+            } 
+            //bottom corner check
+            else if
+            (((this.gameBoard[8] === this.gameBoard[7] && this.gameBoard[8] === this.gameBoard[6])
+            || (this.gameBoard[8] === this.gameBoard[5] && this.gameBoard[8] === this.gameBoard[2]))
+            && this.gameBoard[8] != " ") {
+                console.log(`${this.gameBoard[8]} wins!`);
+                this.resetGame();
+            }
+            //middle check
+            else if
+            (((this.gameBoard[4] === this.gameBoard[1] && this.gameBoard[4] === this.gameBoard[7])
+            || (this.gameBoard[4] === this.gameBoard[5] && this.gameBoard[4] === this.gameBoard[3])
+            || (this.gameBoard[4] === this.gameBoard[0] && this.gameBoard[4] === this.gameBoard[8])
+            || (this.gameBoard[4] === this.gameBoard[2] && this.gameBoard[4] === this.gameBoard[6]))
+            && this.gameBoard[4] != " ") {
+                console.log(`${this.gameBoard[4]} wins!`);
+                this.resetGame();
+            }
+            //tie check
+            else if
+            (this.gameBoard.includes(" ") === false ){
+                console.log("cat game!");
                 this.resetGame();
             }
         }
