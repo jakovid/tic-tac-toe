@@ -37,7 +37,8 @@
                 gameModule.gameBoard[value] = gameModule.turn;
                 gameModule.changeTurn();
                 gameModule.renderBoard();
-            }
+                gameModule.winCheck();
+            };
         },
         changeTurn: function() {
             if (this.turn === "X") {
@@ -46,6 +47,12 @@
                 this.turn = "X";
             }
         },
+        winCheck: function() {
+            if (this.gameBoard[0] === this.gameBoard[1] && this.gameBoard[0] === this.gameBoard[2] && this.gameBoard[0] != " ") {
+                console.log('Top Row Win');
+                this.resetGame();
+            }
+        }
 
     };
 
