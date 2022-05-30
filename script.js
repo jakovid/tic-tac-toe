@@ -11,7 +11,6 @@
             this.el = document.getElementById('gameModule');
             this.gameSquares = this.el.querySelectorAll('.gameSquare');
             this.buttons = this.el.querySelectorAll('.btn');
-            this.game = this.el.querySelector('game');
             this.resetButton = this.el.querySelector('.restart');
         },
         bindEvents: function(){
@@ -19,6 +18,8 @@
             for (let i = 0; i < 9; i++) {
                 this.gameSquares[i].onclick = this.userPick;
             };
+            this.buttons[0].onclick = this.symbolSelect;
+            this.buttons[1].onclick = this.symbolSelect;
         },
         renderBoard: function(){
             for (let i = 0; i < 9; i++) {
@@ -31,10 +32,14 @@
             };
             this.renderBoard();
         },
+        symbolSelect: function(){
+            gameModule.turn = this.getAttribute('value');
+            gameModule.resetGame();
+        },
         userPick: function() {
             if (this.innerHTML === " ") {
-                let value = this.getAttribute('value');
-                gameModule.gameBoard[value] = gameModule.turn;
+                let index = this.getAttribute('value');
+                gameModule.gameBoard[index] = gameModule.turn;
                 gameModule.changeTurn();
                 gameModule.renderBoard();
                 gameModule.winCheck();
