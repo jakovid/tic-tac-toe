@@ -12,6 +12,7 @@
             this.gameSquares = this.el.querySelectorAll('.gameSquare');
             this.buttons = this.el.querySelectorAll('.btn');
             this.resetButton = this.el.querySelector('.restart');
+            this.results = this.el.querySelector('.results');
         },
         bindEvents: function(){
             this.resetButton.onclick = this.resetGame.bind(this);
@@ -35,6 +36,7 @@
         symbolSelect: function(){
             gameModule.turn = this.getAttribute('value');
             gameModule.resetGame();
+            gameModule.showTurn();
         },
         userPick: function() {
             if (this.innerHTML === " ") {
@@ -50,6 +52,16 @@
                  this.turn = "O";
             } else {
                 this.turn = "X";
+            };
+            gameModule.showTurn();
+        },
+        showTurn: function() {
+            if (this.buttons[0].getAttribute('value') === this.turn){
+                this.buttons[0].style.backgroundColor = "green";
+                this.buttons[1].style.backgroundColor = "red";
+            } else {
+                this.buttons[1].style.backgroundColor = "green";
+                this.buttons[0].style.backgroundColor = "red";
             }
         },
         winCheck: function() {
@@ -58,7 +70,7 @@
             (((this.gameBoard[0] === this.gameBoard[1] && this.gameBoard[0] === this.gameBoard[2])
             || (this.gameBoard[0] === this.gameBoard[3] && this.gameBoard[0] === this.gameBoard[6]))
             && this.gameBoard[0] != " ") {
-                console.log(`${this.gameBoard[0]} wins!`);
+                this.results.innerHTML = `${this.gameBoard[0]} wins!`;
                 this.resetGame();
             } 
             //bottom corner check
@@ -66,7 +78,7 @@
             (((this.gameBoard[8] === this.gameBoard[7] && this.gameBoard[8] === this.gameBoard[6])
             || (this.gameBoard[8] === this.gameBoard[5] && this.gameBoard[8] === this.gameBoard[2]))
             && this.gameBoard[8] != " ") {
-                console.log(`${this.gameBoard[8]} wins!`);
+                this.results.innerHTML = `${this.gameBoard[8]} wins!`;
                 this.resetGame();
             }
             //middle check
@@ -76,13 +88,13 @@
             || (this.gameBoard[4] === this.gameBoard[0] && this.gameBoard[4] === this.gameBoard[8])
             || (this.gameBoard[4] === this.gameBoard[2] && this.gameBoard[4] === this.gameBoard[6]))
             && this.gameBoard[4] != " ") {
-                console.log(`${this.gameBoard[4]} wins!`);
+                this.results.innerHTML = `${this.gameBoard[4]} wins!`;
                 this.resetGame();
             }
             //tie check
             else if
             (this.gameBoard.includes(" ") === false ){
-                console.log("cat game!");
+                this.results.innerHTML = `Its a cat game!`;
                 this.resetGame();
             }
         }
