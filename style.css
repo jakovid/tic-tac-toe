@@ -1,9 +1,14 @@
 * {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
 }
 
 .header {
     background-color: lightpink;
+    text-align: center;
+    font-size: 3rem;
+    color: white;
+    font-weight: bolder;
     padding: 1rem;
 }
 

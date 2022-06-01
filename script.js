@@ -2,6 +2,7 @@
     var gameModule = {
         gameBoard: [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
         turn: "X",
+        hasWinner: false,
         init: function() {
             this.cacheDom();
             this.renderBoard();
@@ -31,6 +32,7 @@
             for (let i = 0; i < 9; i++) {
                 this.gameBoard[i] = " ";
             };
+            this.hasWinner = false;
             this.renderBoard();
         },
         symbolSelect: function(){
@@ -39,7 +41,7 @@
             gameModule.showTurn();
         },
         userPick: function() {
-            if (this.innerHTML === " ") {
+            if (this.innerHTML === " " && gameModule.hasWinner === false) {
                 let index = this.getAttribute('value');
                 gameModule.gameBoard[index] = gameModule.turn;
                 gameModule.changeTurn();
@@ -58,10 +60,12 @@
         showTurn: function() {
             if (this.buttons[0].getAttribute('value') === this.turn){
                 this.buttons[0].style.backgroundColor = "green";
-                this.buttons[1].style.backgroundColor = "red";
+                this.buttons[1].style.backgroundColor = "gray";
+                this.results.innerHTML = `It is X's turn`
             } else {
                 this.buttons[1].style.backgroundColor = "green";
-                this.buttons[0].style.backgroundColor = "red";
+                this.buttons[0].style.backgroundColor = "gray";
+                this.results.innerHTML = `It is O's turn`
             }
         },
         winCheck: function() {
@@ -71,7 +75,7 @@
             || (this.gameBoard[0] === this.gameBoard[3] && this.gameBoard[0] === this.gameBoard[6]))
             && this.gameBoard[0] != " ") {
                 this.results.innerHTML = `${this.gameBoard[0]} wins!`;
-                this.resetGame();
+                this.hasWinner = true;
             } 
             //bottom corner check
             else if
@@ -79,7 +83,7 @@
             || (this.gameBoard[8] === this.gameBoard[5] && this.gameBoard[8] === this.gameBoard[2]))
             && this.gameBoard[8] != " ") {
                 this.results.innerHTML = `${this.gameBoard[8]} wins!`;
-                this.resetGame();
+                this.hasWinner = true;
             }
             //middle check
             else if
@@ -89,13 +93,12 @@
             || (this.gameBoard[4] === this.gameBoard[2] && this.gameBoard[4] === this.gameBoard[6]))
             && this.gameBoard[4] != " ") {
                 this.results.innerHTML = `${this.gameBoard[4]} wins!`;
-                this.resetGame();
+                this.hasWinner = true;
             }
             //tie check
             else if
             (this.gameBoard.includes(" ") === false ){
                 this.results.innerHTML = `Its a cat game!`;
-                this.resetGame();
             }
         }
 
